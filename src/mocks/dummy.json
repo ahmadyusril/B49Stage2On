@@ -1,0 +1,35 @@
+[
+    {
+        "author_picture": "authorpicture.png",
+        "author_full_name": "George Floyd",
+        "author_username": "georgefloyd69",
+        "posted_at": "3m",
+        "content": "Kalian pernah gak sih susah nafas",
+        "image": "image.jpg",
+        "likes_count": 69,
+        "replies_count": 420,
+        "is_liked": true
+    },
+    {
+        "author_picture": "authorpicture.png",
+        "author_full_name": "Nurhadi Aldo",
+        "author_username": "nurhadialdo81",
+        "posted_at": "5h",
+        "content": "Tahun depan otw nyalon jadi capres",
+        "image": "image.jpg",
+        "likes_count": 400,
+        "replies_count": 800,
+        "is_liked": false
+    },
+    {
+        "author_picture": "authorpicture.png",
+        "author_full_name": "Furina",
+        "author_username": "furinaaaaa",
+        "posted_at": "7h",
+        "content": "Besok meet up dengan para archon",
+        "image": "image.jpg",
+        "likes_count": 2000,
+        "replies_count": 3200,
+        "is_liked": true
+    }
+]
