@@ -26,7 +26,7 @@ export default new class ThreadService {
                 return res.status(400).json({ error: error.details[0].message });
             }
             console.log(data);
-            let image = "https://th.bing.com/th/id/OIP.yRWATHa-qR9c5mJAvpy0hQHaKZ?pid=ImgDet&rs=1"
+            let image = ""
             if (req.file?.filename) {
                 // save to cloudinary
                 image = await uploadToCloudinary(req.file);

@@ -11,17 +11,21 @@ export default new class LikeServices {
     
     async create(req: Request, res: Response) : Promise<Response> {
         try {
-            const data = req.body;
-            const { error, value } = likeSchema.validate(data);
-            if(!error) {
-                return res.status(400).json({ error: error.details[0].message })
-            }
-            const like = await this.LikeRepository.create ({
+            const data = req.body
+             
+            const { error, value }  = likeSchema.validate(data)
+            if (error) return res.status(400).json({ Error: error })
+
+            const like = await this.LikeRepository.create({
                 user: value.user,
                 thread: value.thread,
-            });       
-            const createLike = await this.LikeRepository.save(like);
-            return res.status(200).json(createLike);
+            })
+
+            const createdLike = await this.LikeRepository.save(like)
+            return res.status(200).json({
+                "message": "successfull",
+                "like": createdLike
+            })
         }   catch (error) {
             return res.status(500).json({ error: "error while giving like" });
         }
@@ -29,9 +33,8 @@ export default new class LikeServices {
 
     async find(req: Request, res: Response) : Promise<Response> {
         try {
-            const id = Number(req.params.id);
             const likes = await this.LikeRepository.find({
-                relations: ["thread", "user"],
+                relations: ['thread', 'user'],
             });
             return res.status(200).json(likes);
         }   catch (error) {
@@ -57,7 +60,6 @@ export default new class LikeServices {
             const id = Number(req.params.id);
             const like = await this.LikeRepository.findOne({
                 where: { id:id },
-                relations: ["thread", "user"],
             });
             if (!like) {
                 return res.status(404).json({error: "Like not found"});

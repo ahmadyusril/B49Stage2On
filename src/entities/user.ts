@@ -46,11 +46,11 @@ export class User {
     })
     threads: Thread[]
 
-    @OneToMany(() => Like, (likes) => likes.user, {
+    @OneToMany(() => Like, likes => likes.id, {
         onDelete: "CASCADE",
-        onUpdate: "CASCADE",
+        onUpdate: "CASCADE"
     })
-    likes: Like[];
+    likes: Like[]
 
     @OneToMany(() => Reply, (replies) => replies.user, {
         onDelete: "CASCADE",

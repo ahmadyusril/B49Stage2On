@@ -12,7 +12,7 @@ ThreadRoute.post(
     UploadFileMiddleware.single("image"), 
     ThreadController.create)
 
-ThreadRoute.get("/thread/:id",ThreadController.find)
+ThreadRoute.get("/thread/:id",ThreadController.findById)
 
 ThreadRoute.patch("/thread/:id", 
 AuthMiddlewares.Authentification, 
